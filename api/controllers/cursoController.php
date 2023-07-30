@@ -1,5 +1,5 @@
 <?php
-require_once 'validations/CursoValidation.php';
+require_once 'validations/CursoValidations.php';
 
 class CursoController {
     private $model;
@@ -18,4 +18,19 @@ class CursoController {
         }
         return $cursos;
     }
+    public function addCurso($titulo, $descricao, $imagem) {
+        if(cursoValidation($titulo,$descricao,$imagem)){
+            return $this->model->addCurso($titulo, $descricao, $imagem);
+        }
+        return null;
+    }
+
+    public function updateCurso($id, $titulo, $descricao, $imagem) {
+        return $this->model->updateCurso($id, $titulo, $descricao,$imagem);
+    }
+    
+    public function deleteCurso($id) {
+        return $this->model->deleteCurso($id);
+    }
+
 }

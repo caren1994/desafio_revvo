@@ -11,7 +11,7 @@ class CursoModel {
         $query = "SELECT * FROM $this->table";
         $result = $this->conn->query($query);
 
-        // Verifica se houve algum erro na execução da consulta
+
         if (!$result) {
             throw new Exception("Erro na consulta: " . $this->conn->error);
         }
@@ -22,5 +22,45 @@ class CursoModel {
         }
         return $cursos;
     }
+    public function getCursoId() {
+        $query = "SELECT * FROM $this-&gt;table WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->id);
+        $stmt->execute();
+        
+       $result = $stmt->get_result();
+        return $result;
+    }
+    public function addCurso($titulo, $descricao, $imagem) {
+        $query = "INSERT INTO $this-&gt;table (titulo, descrição, imagem) VALUES (?,?,$imagem)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ss", $titulo, $descricao, $imagem);
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+    public function updateCurso($id, $titulo, $descricao, $imagem) {
+        $query = "UPDATE $this->table SET titulo = ?, descricao = ?,
+        imagem = $imagem WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssi", $titulo, $descricao, $id);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteCurso($id) {
+        $query ="DELETE FROM $this-&gt;table WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
 }
+
 ?>
