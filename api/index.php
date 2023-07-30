@@ -11,15 +11,13 @@ function resposta($codigo, $msg){
     echo json_encode( $msg);
 
 }
-
-
-require_once('models/CursoModel.php');
-require_once('controllers/CursoController.php');
-require_once('models/UserModel.php'); 
-require_once('controllers/UserController.php'); 
-require_once('database/db_connection.php');
-
 try {
+
+require_once('models/cursoModel.php');
+require_once('controllers/cursoController.php');
+require_once('models/userModel.php'); 
+require_once('controllers/userController.php'); 
+require_once('database/db_connection.php');
 
     $database = new Database();
     $db = $database->getConnection();
@@ -39,9 +37,49 @@ try {
             case 'GET':
                 $cursos = $cursoController->getCursos();
                 resposta(200, $cursos);
-                break;
-        }
+            break;
         
+            case 'POST':
+                $data = json_decode(file_get_contents("php://input"), true);
+                $titulo = $data["titulo"];
+                $descricao = $data["descricao"];
+                $imagem = $data["imagem"];
+                $result = $cursoController->addCurso($titulo, $descricao,
+                $imagem);
+                if ($result) {
+                http_response_code(201);
+                echo json_encode(array("message" => "Curso criado com
+                sucesso"));
+                } else {
+                http_response_code(500);
+                echo json_encode(array("message" => "Erro ao criar
+                curso"));
+                }
+            break;
+            
+            case "PUT":
+                parse_str(file_get_contents("php://input"), $putVars);
+                $id = $putVars["id"];
+                $titulo = $putVars["titulo"];
+                $descricao = $putVars["descricao"];
+                $imagem = $putVars["imagem"];
+                $result = $cursoController->updateCurso($id, $titulo,
+                $descricao, $imagem);
+                if ($result) {
+                http_response_code(200);
+                echo json_encode(array("message" => "Curso atualizado com
+                sucesso"));
+                } else {
+                http_response_code(500);
+                echo json_encode(array("message" => "Erro ao atualizar
+                curso"));
+                }
+            break;
+            
+            default:
+                 http_response_code(405);
+            break;
+             }
     }
     if (isset($_GET['url']) && $_GET['url'] === 'users') {
 
@@ -50,17 +88,17 @@ try {
                 $users = $userController->getUsers();
                 resposta(200, $users);
 
-                break;
+            break;
         
             default:
                 http_response_code(405);
                 echo json_decode(array('message' => 'erro'));
-                break;
+            break;
         }
     }
 
 }catch (Exception $e) {
-    http_response_code(200);
+    http_response_code(500);
     echo json_encode(array('message' => $e->getTrace()));
 }
 
