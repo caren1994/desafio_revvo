@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 export async function GET(){
-    return NextResponse.json({ message: "Hello" });
+    const request = await fetch("http://localhost:8000/?url=cursos");
+    const response = await request.json(); 
+    return NextResponse.json(response);
 
 }
 
 export async function POST(request){
-    const body = await request.body.json();
+    const body = await request.json();
+    console.log(body);
     return NextResponse.json({ message: `Hello ${body.name}` });
 }
