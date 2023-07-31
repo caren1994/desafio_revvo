@@ -10,13 +10,20 @@ class CursoController {
 
     public function getCursos() {
         $result = $this->model->getCursos();
-        $cursos = array();
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $cursos[] = $row;
-            }
+        if ($result) {
+            return $result;
+            
         }
-        return $cursos;
+        return null;
+    }
+    public function getCursoId($id) {
+        $curso = $this->model->getCursoId($id);
+
+        if ($curso) {
+            return $curso;
+        } else {
+            return null;
+        }
     }
     public function addCurso($titulo, $descricao, $imagem) {
         if(cursoValidation($titulo,$descricao,$imagem)){

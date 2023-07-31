@@ -30,11 +30,30 @@ require_once('database/db_connection.php');
 
     $method = $_SERVER['REQUEST_METHOD'];
 
-
-    if (isset($_GET['url']) && $_GET['url'] === 'cursos') {
+    if (isset($_GET['url']) && preg_match('/^cursos\/(\d+)$/', $_GET['url'], $matches)) {
+        $id = $matches[1];
     
         switch ($method) {
             case 'GET':
+                $curso = $cursoController->getCursoId($id);
+                if ($curso) {
+                    resposta(200, $curso);
+                } else {
+                    resposta(404, ['mensagem' => 'Curso não encontrado']);
+                }
+                break;
+
+            default:
+                resposta(405, ['mensagem' => 'Método não permitido']);
+                break;
+        }
+
+    } elseif (isset($_GET['url']) && $_GET['url'] === 'cursos') {
+    
+        switch ($method) {
+
+            case 'GET':
+                
                 $cursos = $cursoController->getCursos();
                 resposta(200, $cursos);
             break;

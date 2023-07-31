@@ -1,6 +1,7 @@
 <?php
 class CursoModel {
     private $conn;
+
     private $table = 'cursos';
 
     public function __construct($db) {
@@ -22,17 +23,18 @@ class CursoModel {
         }
         return $cursos;
     }
-    public function getCursoId() {
-        $query = "SELECT * FROM $this-&gt;table WHERE id = ?";
+    public function getCursoId($id) {
+
+        $query = "SELECT * FROM $this->table WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $this->id);
+        $stmt->bind_param("i", $id);
         $stmt->execute();
         
        $result = $stmt->get_result();
         return $result;
     }
     public function addCurso($titulo, $descricao, $imagem) {
-        $query = "INSERT INTO $this-&gt;table (titulo, descrição, imagem) VALUES (?,?,$imagem)";
+        $query = "INSERT INTO $this->table (titulo, descrição, imagem) VALUES (?,?,$imagem)";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ss", $titulo, $descricao, $imagem);
         if ($stmt->execute()) {
@@ -53,7 +55,7 @@ class CursoModel {
     }
 
     public function deleteCurso($id) {
-        $query ="DELETE FROM $this-&gt;table WHERE id = ?";
+        $query ="DELETE FROM $this->table WHERE id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
