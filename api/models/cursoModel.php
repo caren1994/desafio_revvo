@@ -30,23 +30,23 @@ class CursoModel {
         $stmt->bind_param("i", $id);
         $stmt->execute();
         
-       $result = $stmt->get_result();
+       $result = $stmt->get_result()->fetch_assoc();
         return $result;
     }
     public function addCurso($titulo, $descricao, $imagem) {
-        $query = "INSERT INTO $this->table (titulo, descrição, imagem) VALUES (?,?,$imagem)";
+        $query = "INSERT INTO $this->table (titulo, descricao, imagem) VALUES (?,?,?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ss", $titulo, $descricao, $imagem);
+        $stmt->bind_param("sss", $titulo, $descricao, $imagem);
         if ($stmt->execute()) {
             return true;
         }
         return false;
     }
-    public function updateCurso($id, $titulo, $descricao, $imagem) {
+    public function updateCurso( $titulo, $descricao, $imagem,$id) {
         $query = "UPDATE $this->table SET titulo = ?, descricao = ?,
-        imagem = $imagem WHERE id = ?";
+        imagem = ? WHERE id = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssi", $titulo, $descricao, $id);
+        $stmt->bind_param("sssi", $titulo, $descricao, $imagem,$id);
         if ($stmt->execute()) {
             return true;
         } else {

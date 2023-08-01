@@ -1,5 +1,8 @@
 <?php
-require_once 'validations/CursoValidations.php';
+require_once './validations/validationsPost.php';
+require_once './validations/validationsPut.php';
+require_once './validations/validationsDelete.php';
+
 
 class CursoController {
     private $model;
@@ -26,18 +29,29 @@ class CursoController {
         }
     }
     public function addCurso($titulo, $descricao, $imagem) {
-        if(cursoValidation($titulo,$descricao,$imagem)){
-            return $this->model->addCurso($titulo, $descricao, $imagem);
+        $validations=validationsPost($titulo, $descricao, $imagem);
+        if($validations){
+            $result = $this->model->addCurso($titulo, $descricao, $imagem);
+            return $result;
+        }
+        return null;
+ 
+    }
+
+    public function updateCurso($titulo, $descricao, $imagem,$id) {
+        $validations=validationsPut($titulo, $descricao, $imagem,$id);
+        if($validations){
+        return $this->model->updateCurso($titulo, $descricao,$imagem,$id);
         }
         return null;
     }
-
-    public function updateCurso($id, $titulo, $descricao, $imagem) {
-        return $this->model->updateCurso($id, $titulo, $descricao,$imagem);
-    }
     
     public function deleteCurso($id) {
+        $validations=validationsDelete($id);
+        if($validations){
         return $this->model->deleteCurso($id);
+        }
+        return null;
     }
 
 }
