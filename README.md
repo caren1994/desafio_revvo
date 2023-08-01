@@ -28,9 +28,10 @@ CD front-end
 
 ```
 
-- Após utilize o comando :
+- Após utilize os comandos:
 - 
 ```bash
+npm install
 npm run dev
 
 ```
