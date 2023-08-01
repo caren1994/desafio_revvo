@@ -13,9 +13,13 @@
   background-color: white;
   text-align: center;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  width: 500px;
+  width: 400px;
   height: 280px;
   border-radius: 8px;
+}
+
+.h4 {
+  margin-bottom: 5px;
 }
 
 .divImage {
@@ -23,14 +27,8 @@
   position: relative;
 }
 .divImage img {
-  width: 495px;
+  width: 400px;
   height: 120px;
-}
-
-.divB {
-  display: flex;
-  justify-content: end;
-  width: 300px;
 }
 
 .link {

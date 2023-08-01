@@ -47,10 +47,7 @@ export default  function Home(){
             
             <img src='/imagens/PC-setup.jpg' alt='imagem de um curso'/>
             </div>
-            <div className={styles.divB}>
-
-         </div>
-         <h4>Lorem ipsum dolor sit amet. Sit Quis labore sit culpa eligendi et</h4>
+         <h4 className={styles.h4}>Lorem ipsum dolor sit amet. Sit Quis labore sit culpa eligendi et</h4>
          <p>Lorem ipsum dolor sit amet. Sit Quis labore sit culpa eligendi et repellat vero eum omnis earum vel omnis suscipit aut neque similique. Qui magnam architecto non debitis ipsa sed eveniet nihil</p>
          <Link href='https://somosrevvo.com.br/?utm_source=google%20&utm_medium=cpc&utm_campaign=campanha-institucional&utm_content=campanha-institucional-TRK&keyword=revvo&creative=659469372405&gclid=CjwKCAjwt52mBhB5EiwA05YKoylTUjqREOH2P6a429rl1sLO9ovax0YeCMXw7wHd_wzSv7b2btV7vBoC_48QAvD_BwE' className={styles.link}> Nosso Site </Link>
         </div>
