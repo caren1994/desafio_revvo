@@ -3,3 +3,49 @@
     padding: 0;
     background-color:rgba(201, 197, 197, 0.8);
 }
+
+.divModal{
+    margin: auto;
+    margin-top: 50px;
+    display: flex-column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    width: 500px;
+    height: 280px;
+    border-radius: 8px;
+
+}
+.divImage{
+   
+    height: 100px;
+
+    position: relative;
+    img{
+        width: 495px;
+        height: 120px;
+    }
+}
+.divB{
+    display: flex;
+    justify-content: end;
+    width: 300px;
+
+
+
+}
+.link{
+    color: white;
+    background-color: rgb(10, 88, 133);
+    border: 2px solid rgb(10, 88, 133) ;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+
+}
+
+
+
