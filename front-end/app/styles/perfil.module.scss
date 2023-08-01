@@ -1,0 +1,39 @@
+.containerPerfil {
+    display: flex;
+    order:2;
+}
+
+.containerPhoto {
+    width: 70px; 
+    height: 70px; 
+    position: relative; 
+    border: 3px solid #ccc; 
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info {
+    padding: 5px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.welcome {
+    color: #ccc; 
+    font-size: 0.8em;
+}
+
+.userName {
+    color: #555; 
+    font-weight: 600; 
+    font-size: 1.2em;
+}
+
+.arrow {
+    height: 100%;
+}
+@media (max-width: 768px){
+    .containerPerfil {
+        order:3;
+    }
+}
