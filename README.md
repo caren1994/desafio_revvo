@@ -12,8 +12,7 @@
 ```bash
 docker-compor up -d 
 ```
-#### Eu utilizei o MySQL Workbench para vizualização do banco de dados, para acessar
-vá até as configurações do mysql connections e adicione as seguintes configurações:
+#### Eu utilizei o MySQL Workbench para vizualização do banco de dados, para acessar vá até as configurações do mysql connections e adicione as seguintes configurações:
 
 ```bash
 Hostname:127.0.0.1
