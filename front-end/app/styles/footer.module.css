@@ -1,0 +1,45 @@
+.divFooter {
+  display: column;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  height: 150px;
+  flex-wrap: wrap;
+}
+.footer .divP {
+  background-color: rgb(202, 199, 199);
+  width: 100%;
+}
+.footer .p {
+  color: rgb(80, 79, 79);
+}
+
+.divLogo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 300px;
+  color: rgb(80, 79, 79);
+}
+.divLogo img {
+  width: 200px;
+}
+
+.divContato {
+  flex-direction: column;
+}
+.divContato p {
+  color: rgb(80, 79, 79);
+}
+
+.divRedes {
+  flex-direction: column;
+  margin-right: 30px;
+}
+.divRedes a {
+  color: rgb(31, 161, 212);
+}/*# sourceMappingURL=footer.module.css.map */
