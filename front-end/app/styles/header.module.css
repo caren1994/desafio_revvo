@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}/*# sourceMappingURL=header.module.css.map */
