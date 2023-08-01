@@ -1,1 +1,33 @@
-# desafio_revvo
+
+# Projeto Desafio_Revvo
+
+### Executando a aplicação
+
+ - inicie fazendo o clone deste repositório usando o comando abaixo.
+
+    git clone 'git@github.com:caren1994/desafio_revvo.git'
+   
+   ### Essa aplicação utiliza Docker, para subir  container do banco e do backend utilize o comando:
+   
+```bash
+docker-compor up -d 
+```
+
+### Para o Front-end entre na pasta front-end com o comando:
+
+```bash
+CD front-end 
+
+```
+
+- Após utilize o comando :
+- 
+```bash
+npm run dev
+
+```
+
+#### Obs: A aplicação parte do ponto que o usuário já está logado.
+  
+
+Desenvolvido por [Caren Pontes](https://www.linkedin.com/in/caren-oliveira-pontes/), © 2023.
