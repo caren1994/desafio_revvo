@@ -49,6 +49,10 @@ img{
   height: 220px;
 }
 }
+.divForm{
+border:2px solid rgba(201, 197, 197, 0.8);;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -78,6 +82,8 @@ img{
     border: none;
     background-color: #3ab61b;
     color: white;
+    margin-left: 8px;
+    margin-bottom: 8px;
   }
 }
 
