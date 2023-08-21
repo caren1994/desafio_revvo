@@ -10,7 +10,7 @@
    ### Essa aplicação utiliza Docker, para subir  container do banco e do backend utilize o comando:
    
 ```bash
-docker-compor up -d 
+docker-compose up -d 
 ```
 #### Eu utilizei o MySQL Workbench para vizualização do banco de dados, para acessar vá até as configurações do mysql connections e adicione as seguintes configurações:
 
